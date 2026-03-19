@@ -1,0 +1,6 @@
+[submodule "clinica-api"]
+	path = clinica-api
+	url = https://github.com/Charlyqv/clinica-api.git
+[submodule "clinica-belleza-app"]
+	path = clinica-belleza-app
+	url = https://github.com/Charlyqv/clinica-belleza-app.git
