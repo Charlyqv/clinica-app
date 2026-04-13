@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     image: mysql:8.0
@@ -8,25 +6,36 @@ services:
       MYSQL_DATABASE: clinica_db
       MYSQL_ROOT_PASSWORD: root
     ports:
-      - "3306:3306"
-    # Opcional: Si quieres que la BD inicie con tablas ya creadas
-    # volumes:
-    #   - ./mysql-init:/docker-entrypoint-initdb.d
+      - "3307:3306"
 
   api:
     build: 
-      context: ./clinica-api  # Apunta a tu submódulo backend
+      context: ./clinica-api 
     container_name: clinica_backend
     ports:
       - "8000:8000"
+    volumes:
+      - ./clinica-api:/app
     depends_on:
       - db
 
   frontend:
     build: 
-      context: ./clinica-belleza-app # Apunta a tu submódulo frontend
+      context: ./clinica-belleza-app
     container_name: clinica_frontend
     ports:
       - "5173:5173"
+    volumes:
+      - ./clinica-belleza-app:/app
+      - /app/node_modules
+    environment:
+    - CHOKIDAR_USEPOLLING=true
+    develop:
+      watch:
+        - action: sync
+          path: ./clinica-belleza-app
+          target: /app
+          ignore:
+            - node_modules/     
     depends_on:
       - api

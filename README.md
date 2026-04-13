@@ -11,8 +11,7 @@ Este repositorio actúa como el **orquestador principal** para el ecosistema de 
 
 > **Nota:** El sistema está diseñado para uso interno y no se encuentra desplegado de forma pública por motivos de privacidad de datos, pero puedes ver el flujo principal a continuación.
 
-![Demo del Sistema]([ENLACE_A_TU_GIF_AQUI_O_ARRASTRA_LA_IMAGEN_DIRECTO_A_GITHUB])
-
+![Demo del Sistema](./assets/demo-clinica.gif)
 ## 🏗️ Arquitectura del Proyecto
 
 El sistema está dividido en microservicios gestionados a través de submódulos para separar responsabilidades y facilitar la escalabilidad:
